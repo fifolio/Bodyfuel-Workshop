@@ -3,10 +3,9 @@ import {Box, Button, Stack, TextField, Typography} from '@mui/material'
 import {exercisesOptions, fetchData} from '../utils/fetchData.js'
 import HorizontalScrollbar from '../components/HorizontalScrollbar'
 
-export default function SearchExercises (){
+export default function SearchExercises ({setExercises, bodyPart, setBodyPart}){
 
   const [search, setSearch] = useState('')
-  const [exercises, setExercises] = useState([])
   const [bodyParts, setBodyParts] = useState([])
  
   useEffect(() => {
@@ -76,7 +75,6 @@ export default function SearchExercises (){
         />
 
        <Button
-       color="error"
         sx={{
           backgroundColor: "#FF2625",
           color: 'white',
@@ -88,6 +86,8 @@ export default function SearchExercises (){
           position: 'absolute',
           right: '0'
         }}
+        variant="contained" 
+        color="error"
         onClick={handleSearch}
         >
           Search
@@ -101,7 +101,7 @@ export default function SearchExercises (){
         p: '20px'
       }}>
 
-        <HorizontalScrollbar data={bodyParts} />
+        <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
 
       </Box>
 

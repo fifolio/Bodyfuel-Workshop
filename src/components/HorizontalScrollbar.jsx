@@ -1,20 +1,39 @@
-import {Box} from '@mui/material'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Grid from '@mui/material/Grid';
 
-export default function HorizontalScrollbar({ data }) {
+import BodyPart from '../components/bodyPart'
+
+export default function HorizontalScrollbar(
+    { data, bodyPart, setBodyPart }
+    ) {
 
     return (
-        <div>
+        <Grid 
+        alignItems="center" 
+        justifyContent="center"
+        container 
+        rowSpacing={3} 
+        columnSpacing={{ xs: 1, sm: 9, md: 3 }}>
+
         {data.map((item) => (
-            <Box 
-                key={item.id || item}
-                itemID={item.id || item}
-                title={item.id || item}
-                m="0 40px"
-                >
-                    {item}
-            </Box>
-        )
-        )}
-        </div>
+            <Grid 
+            item 
+            sm={6} 
+            md={3}
+            key={item.id || item}
+            itemId={item.id || item}
+            title={item.id || item}
+            >
+            <Card>
+                <CardContent>
+                    {bodyPart ? <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : '' }
+                </CardContent>
+            </Card>
+            </Grid>
+            ))}
+        </Grid>
     )
 }
+
+
