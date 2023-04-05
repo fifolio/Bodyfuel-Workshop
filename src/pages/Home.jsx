@@ -1,4 +1,3 @@
-// import { useState } from "react"
 import {Box} from '@mui/material'
 
 import HeroBanner from '../components/HeroBanner';
@@ -9,7 +8,7 @@ import {useState} from 'react'
 
 export default function Home(){
     const [bodyPart, setbodyPart] = useState('all')
-  const [exercises, setExercises] = useState([])
+    const [exercises, setExercises] = useState([])
     return (
         <Box>
             <HeroBanner />

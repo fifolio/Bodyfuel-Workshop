@@ -4,9 +4,7 @@ import Grid from '@mui/material/Grid';
 
 import BodyPart from '../components/bodyPart'
 
-export default function HorizontalScrollbar(
-    { data, bodyPart, setBodyPart }
-    ) {
+export default function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
 
     return (
         <Grid 

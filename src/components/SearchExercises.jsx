@@ -5,7 +5,7 @@ import HorizontalScrollbar from '../components/HorizontalScrollbar'
 
 export default function SearchExercises ({setExercises, bodyPart, setBodyPart}){
 
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState("")
   const [bodyParts, setBodyParts] = useState([])
  
   useEffect(() => {
