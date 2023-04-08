@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 
 import BodyPart from '../components/bodyPart'
 
-export default function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
+export default function HorizontalScrollbar({ data, bodyParts, setBodyPart, bodyPart }) {
 
     return (
         <Grid 
@@ -19,13 +19,14 @@ export default function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
             item 
             sm={6} 
             md={3}
-            key={item.id || item}
-            itemId={item.id || item}
-            title={item.id || item}
+           key={item.id || item}
+        itemID={item.id || item}
+        title={item.id || item}
             >
             <Card>
                 <CardContent>
-                    {bodyPart ? <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : '' }
+                            {bodyPart ? <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : ''}
+
                 </CardContent>
             </Card>
             </Grid>

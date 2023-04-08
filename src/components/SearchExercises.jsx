@@ -1,11 +1,11 @@
 import {useEffect, useState} from 'react'
-import {Box, Button, Stack, TextField, Typography} from '@mui/material'
-import {exercisesOptions, fetchData} from '../utils/fetchData.js'
-import HorizontalScrollbar from '../components/HorizontalScrollbar'
+import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+import { exercisesOptions, fetchData } from '../utils/fetchData';
+import HorizontalScrollbar from './HorizontalScrollbar';
 
 export default function SearchExercises ({setExercises, bodyPart, setBodyPart}){
 
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState('')
   const [bodyParts, setBodyParts] = useState([])
  
   useEffect(() => {
@@ -16,53 +16,32 @@ export default function SearchExercises ({setExercises, bodyPart, setBodyPart}){
     }
 
     fetchExercisesData();
-  }, [])
+  }, []);
 
   const handleSearch = async () => {
     if (search){
       const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exercisesOptions);
 
-      const searchedExercise = exercisesData.filter((exercise) => {
-        exercise.name.toLowerCase().includes(search) ||
-        exercise.target.toLowerCase().includes(search) ||
-        exercise.equipment.toLowerCase().includes(search) ||
-        exercise.bodyPart.toLowerCase().includes(search)
-      });
+      const searchedExercise = exercisesData.filter(
+        (item) => item.name.toLowerCase().includes(search)
+               || item.target.toLowerCase().includes(search)
+               || item.equipment.toLowerCase().includes(search)
+               || item.bodyPart.toLowerCase().includes(search),
+      );
 
-      setSearch("");
+      setSearch('');
       setExercises(searchedExercise)
     }
   }
 
   return (
-    <Stack 
-    alignItems="center" 
-    mt="37px"
-    justifyContent="center"
-    p="20px"
-    >
-      <Typography
-      fontWeight={700}
-      sx={{
-        fontSize: {lg: '44px', xs: '30px'}
-      }}
-      mb="50px"
-      textAlign="center"
-      >
+    <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
+      <Typography fontWeight={700} sx={{ fontSize: {lg: '44px', xs: '30px'}}} mb="50px" textAlign="center">
         Awesome Exercises You <br /> Should Discover
       </Typography>
 
-      <Box
-      position="relative"
-      mb="72px"
-      >
-        <TextField
-        sx={{
-          input: {
-            fontWeight: '700',
-            border: 'none', 
-            borderRadius: '4px'
-          },
+      <Box position="relative" mb="72px">
+        <TextField sx={{ input: {fontWeight: '700', border: 'none',borderRadius: '4px'},
           width: {lg: '800px', xs: '350px'},
           height: '76px',
           backgroundColor: '#fff',
