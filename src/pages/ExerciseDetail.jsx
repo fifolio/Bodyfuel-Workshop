@@ -18,10 +18,10 @@ export default function ExerciseDetail() {
             const exercisesDbUrl = 'https://exercisedb.p.rapidapi.com';
             const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
 
-            const exerciseDetailData = await fetchData(`${exercisesDbUrl}/exercises/${id}`, exercisesOptions)
+            const exerciseDetailData = await fetchData(`${exercisesDbUrl}/exercises/exercise/${id}`, exercisesOptions)
             setExerciseDetail(exerciseDetailData)
         }
-
+        fetchExercisesData()
     }, [id])
 
 

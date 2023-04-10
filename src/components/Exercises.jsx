@@ -51,7 +51,7 @@ export default function Exercises({ exercises, setExercises, bodyPart }) {
         {exercises.length > 9 && (
           <Pagination
             color="primary"
-            shape="circle"
+            shape="circular"
             defaultPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={currentPage}
